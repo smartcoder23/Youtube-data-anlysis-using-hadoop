@@ -8,8 +8,8 @@ var inputObject = {};
 var count = 0;
 var publishAfterTime = '';
 var publishBeforeTime = '';
-// AIzaSyD93zoVXfwOKmkxMFU0LWKvkdzQMdm1yOk
-var API_ACCESS_KEY = '';
+
+var API_ACCESS_KEY = 'your youtube-api-key';
 
 var nextPageToken;
 
