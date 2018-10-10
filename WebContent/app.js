@@ -150,7 +150,6 @@ socket.on('clickedcommentanalyze',function(data){
 	//console.log('stderr: ' + stderr);
 	//Execute all command and then read tsv code
 	var commtsv = fs.readFileSync('/home/shubham/YouTube-Data-Analysis-master15/output/outcomments.tsv','utf8');
-	//var categtsv = fs.readFileSync('./../output/outcategory.tsv','utf8');
 	var commheaders = ["Title","Count"];
 	var topcomm = tsvJSON(commtsv,commheaders);
 	
@@ -202,18 +201,12 @@ socket.on('clickedcategoryanalyze',function(data){
 	console.log('stderr: ' + stderr);
 	//Execute all command and then read tsv code
 	var categtsv = fs.readFileSync('/home/shubham/YouTube-Data-Analysis-master15/output/outcategory.tsv','utf8');
-	//var categtsv = fs.readFileSync('./../output/outcategory.tsv','utf8');
 	var categheaders = ["Title","Count"];
 
 // Call tsv to JSOn to send the data
 	var topcateg = tsvJSON(categtsv,categheaders);
-	//var topuploader = tsvJSON(uploadertsv,uploaderheaders);
-	//var topviewed = tsvJSON(viewtsv,viewheaders);
 	resultdata.response = "success";
 	resultdata.topcategory = topcateg;	
-	//resultdata.topuploader = topuploader;
-	//resultdata.topviewed = topviewed;		
-	// Function to convert TSV to JSON object
 	function tsvJSON(tsv,headers){
 				
 		  var lines=tsv.split("\n");
@@ -259,24 +252,16 @@ socket.on('clickedviewanalyze',function(data){
 		}
 	console.log('stdout: ' + stdout); 
 	console.log('stderr: ' + stderr);
-	//Execute all command and then read tsv code
-	//var viewtsv = fs.readFileSync('/home/shubham/YouTube-Data-Analysis-master15/output/outview.tsv','utf8');
-	//var categtsv = fs.readFileSync('./../output/outcategory.tsv','utf8');
-	//var categheaders = ["Vdeo_name","Count"];
-	//var uploadertsv = fs.readFileSync('/home/shubham/YouTube-Data-Analysis-master15/output/outuploader.tsv','utf8');
-	//var uploadertsv = fs.readFileSync('./../output/outuploader.tsv','utf8');
-	//var uploaderheaders = ["Uploader","Count"];
+	
 	var viewtsv = fs.readFileSync('/home/shubham/YouTube-Data-Analysis-master15/output/outview.tsv','utf8');
-	//var viewtsv = fs.readFileSync('./../output/outview.tsv','utf8');
+
 	var viewheaders = ["Title","Count"];
 
 // Call tsv to JSOn to send the data
-	//var topcateg = tsvJSON(categtsv,categheaders);
-	//var topuploader = tsvJSON(uploadertsv,uploaderheaders);
+	
 	var topviewed = tsvJSON(viewtsv,viewheaders);
 	resultdata.response = "success";
-	//resultdata.topcategory = topcateg;	
-	//resultdata.topuploader = topuploader;
+	
 	resultdata.topviewed = topviewed;		
 	// Function to convert TSV to JSON object
 	function tsvJSON(tsv,headers){
@@ -325,15 +310,10 @@ socket.on('clickeduploaderanalyze',function(data){
 	console.log('stdout: ' + stdout); 
 	console.log('stderr: ' + stderr);
 	var uploadertsv = fs.readFileSync('/home/shubham/YouTube-Data-Analysis-master15/output/outuploader.tsv','utf8');
-	//var uploadertsv = fs.readFileSync('./../output/outuploader.tsv','utf8');
 	var uploaderheaders = ["Title","Count"];
 	var topuploader = tsvJSON(uploadertsv,uploaderheaders);
-	//var topviewed = tsvJSON(viewtsv,viewheaders);
-	resultdata.response = "success";
-	//resultdata.topcategory = topcateg;	
+	resultdata.response = "success";	
 	resultdata.topuploader = topuploader;
-	//resultdata.topviewed = topviewed;		
-	// Function to convert TSV to JSON object
 	function tsvJSON(tsv,headers){
 				
 		  var lines=tsv.split("\n");
